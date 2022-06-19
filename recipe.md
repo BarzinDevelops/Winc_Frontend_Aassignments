@@ -1,4 +1,4 @@
-<img align="left" width="150" height="150" style="margin-right: 30px; border-radius: 10px" src="mushroom_steak_sandwich.jpg">
+<img align="left" height="200" style="margin-right: 30px; border-radius: 10px" src="mushroom_steak_sandwich.jpg">
 
 ## **EASY MUSHROOM STEAK SANDWICH**
 
@@ -7,8 +7,10 @@
 ## A super tasty crowd pleasing treat of a sandwich, here we compress mushrooms to release their “steak-like” texture – this easy mushroom steak sandwich is so easy to make and incredible tasty!
 
 ---
+   <br/>
+   <br/>
 
-### **INGREDIENTS** __________
+### **`INGREDIENTS`** __________
 
 - 1 large baguette or bread
   roll
@@ -23,8 +25,9 @@
 - 2 medium onions
 - A few leaves of lettuce
 - 3 tbsp vegan mayo
-
-### **INSTRUCTIONS** ____________________________________________
+   <br/>
+   <br/>
+### **`INSTRUCTIONS`** ____________________________________________
 
 1. Peel and slice the onions
 2. Heat a non stick pan on high heat
@@ -55,31 +58,15 @@
    sliced tomato, some lettuce and finish with a generous  
    serving of the mushrooms. Repeat with the other sandwich.  
    Enjoy!
+   <br/>
+   <br/>
+   
+### **`NUTRITION`**
 
-### **NUTRITION** __________
-<div style="display: flex; gap: 5px;">
-    <div style="display: block; min-width: 150px; padding: 5px;">
-    Calories: 785kcal
-    Saturated Fat: 3g  
-    Sodium: 1932mg  
-    Vitamin A: 1075IU  
-    </div>
-    <div style="display: block; min-width: 150px; padding: 5px;">
-    Carbohydrates: 106g
-    Polyunsaturated Fat: 6g
-    Potassium: 1160mg
-    Vitamin C: 25mg
-    </div>
-    <div style="display: block; min-width: 150px; padding: 5px;">
-    Protein: 20g
-    Monounsaturated Fat: 10g
-    Fiber: 9g
-    Calcium: 211mg
-    </div>
-    <div style="display: block; min-width: 150px; padding: 5px;">
-    Fat: 32g
-    Trans Fat: 1g
-    Sugar: 34g
-    Iron: 7mg
-    </div>
-</div>
+|   |  |  | |
+--- | --- | --- | --- |
+Calories: 785kcal | Carbohydrates: 106g | Protein: 20g | Fat: 32g
+Saturated Fat: 3g | Polyunsaturated Fat: 6g | Monounsaturated Fat: 10g   |Trans Fat: 1g
+Sodium: 1932mg |  Potassium: 1160mg | Fiber: 9g   |Sugar: 34g
+Vitamin A: 1075IU | Vitamin C: 25mg  | Calcium: 211mg   |Iron: 7mg
+
