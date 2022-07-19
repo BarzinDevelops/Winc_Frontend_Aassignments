@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer src="moviesDB.js"></script>
+    <script defer src="app.js"></script>
+    <title>Film Finder</title>
+</head>
+
+<body>
+
+    <main class="main-container">
+        <nav class="nav" id="nav-container">
+            <div class="position-wrapper">
+                <div class="input-label-wrapper">
+                    <input type="radio" id="latest-mv" name="mv-filter" value="2014">
+                    <label for="latest-mv">Movies since 2014</label>
+                </div>
+                <div class="input-label-wrapper">
+                    <input type="radio" id="av-mv" name="mv-filter" value="avengers">
+                    <label for="av-mv">Avengers movies</label>
+                </div>
+                <div class="input-label-wrapper">
+                    <input type="radio" id="xm-mv" name="mv-filter" value="x-men">
+                    <label for="xm-mv">X-Men movies</label>
+                </div>
+                <div class="input-label-wrapper">
+                    <input type="radio" id="pr-mv" name="mv-filter" value="princess">
+                    <label for="pr-mv">Princess movies</label>
+                </div>
+                <div class="input-label-wrapper">
+                    <input type="radio" id="bat-mv" name="mv-filter" value="batman">
+                    <label for="bat-mv">Batman movies</label>
+                </div>
+                <div class="input-label-wrapper">
+                    <input class="custom" type="text" id="custom-search" placeholder="type movie title..">
+                </div>
+            </div>
+        </nav>
+        <ul class="movies-list" id="mv-list">
+
+        </ul>
+    </main>
+</body>
+
+</html>

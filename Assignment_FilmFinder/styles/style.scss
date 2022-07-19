@@ -1,0 +1,136 @@
+*::after, *::before, *{
+    block-size: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(3, 16, 16);
+}
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    .link-to-projects-overview {
+        text-align: center;
+        color: rgb(250, 250, 5);
+        font-size: 1.1rem;
+        padding: 15px;
+        i{ margin-right: 10px; }
+    }
+    .nav{
+        display: grid;
+        padding:  20px;
+        grid-template-columns: repeat(auto-fit, 100%);
+        gap: 10px;
+        background: linear-gradient(#120808, #2e588e);
+        color: rgb(250, 250, 5);
+        align-items: center;
+        justify-items: center;
+        .position-wrapper{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            input[type="radio"]{
+                border: 0px;
+                width: 25px;
+                height: 1.4em;
+            }
+            .input-label-wrapper{
+                text-align: left;
+            }
+            .input-label-wrapper label{
+                margin-left: 3px;
+                line-height: 1.6;
+            }
+            .custom{
+                padding: 5px 10px;
+            }
+            .custom:focus{
+            outline: none;
+            }
+            ::placeholder{
+                color: red;
+                font-style: italic;
+                opacity: 0.7;
+            }
+        }
+    }
+    .movies-list{
+        padding-top:20px;
+        display: grid;
+        gap: 50px;
+        grid-template-columns: repeat(1, auto);
+        justify-content: center;
+        .mv-list-item-class{
+            list-style: none;
+            outline: none;
+        }
+        .mv-list-item-class img:hover{
+        box-shadow:
+        2px 2px 20px rgba(67, 55, 235, 0.42),
+        5px 5px 20px rgba(67, 55, 235, 0.301);
+        }
+    }
+}
+
+ @media screen and (min-width: 700px) {
+    .main-container{
+        .movies-list{
+            grid-template-columns: repeat(2, auto);
+        }
+    }
+}
+@media screen and (min-width: 1000px) {
+    .main-container{
+        .nav{
+            display: flex;
+            justify-content: center;
+            .position-wrapper{
+                width: 100%;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: center;
+            }
+            .input-label-wrapper{
+                display: flex;
+                align-items: center;
+                label{
+                    margin-top: 2px;
+                }
+            }
+        }
+        .movies-list{
+            grid-template-columns: repeat(2, auto);
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main-container{
+        font-size: 1.2rem;
+        .movies-list{
+            grid-template-columns: repeat(3, auto);
+        }
+    }
+}
+@media screen and (min-width: 1500px) {
+    .main-container{
+        font-size: 1.3rem;
+        .movies-list{
+            grid-template-columns: repeat(4, auto);
+        }
+    }
+}
+@media screen and (min-width: 1950px) {
+    .main-container{
+        font-size: 1.4rem;
+        .movies-list{
+            grid-template-columns: repeat(5, auto);
+        }
+        .nav{
+            grid-template-columns: repeat(auto-fit, 300px);
+            justify-content: center;
+        }
+    }
+}
