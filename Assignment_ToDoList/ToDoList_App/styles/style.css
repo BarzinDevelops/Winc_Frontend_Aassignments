@@ -57,18 +57,14 @@ body {
   background-color: rgba(22, 97, 89, 0.261);
 }
 
-.main .input_btn_wrapper .add-btn:hover {
-  background-color: black;
+.main .input_btn_wrapper .add-btn:active, .main .input_btn_wrapper .add-btn:focus, .main .input_btn_wrapper .add-btn:hover {
+  outline: none;
+  background-color: #085c5a;
   color: white;
 }
 
-.main .input_btn_wrapper .add-btn:active {
-  background-color: #085c5a;
-  color: black;
-}
-
 .main .task-list {
-  width: 50%;
+  width: 40%;
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,9 +78,42 @@ body {
 }
 
 .main .task-list .task-item {
-  border-radius: 6px;
-  font-size: 1.2em;
-  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 10px;
   border: 2px solid lightgray;
+}
+
+.main .task-list .task-item .task-check-c {
+  border: 2px solid lightgray;
+  width: 15px;
+  height: 15px;
+}
+
+.main .task-list .task-item .trash-btn {
+  background: url("../images/trash-can.png");
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  border: none;
+  margin-left: auto;
+}
+
+.main .task-list .task-item .task-text-c {
+  width: 50%;
+  border: none;
+  padding: 7px;
+}
+
+.main .task-list .task-item .task-text-c:active, .main .task-list .task-item .task-text-c:focus {
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

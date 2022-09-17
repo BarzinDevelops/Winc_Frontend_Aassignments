@@ -25,29 +25,50 @@
             @include btnAndInput;
             border: none;
             background-color: rgba(22, 97, 89, 0.261);
-            &:hover{
-                background-color: black;
-                color: white;
-            }
-            &:active{
+            &:active, &:focus, &:hover{
+                outline: none;
                 background-color: rgb(8, 92, 90) ;
-                color: black;
+                color: white;
             }
         }
     }
     .task-list{
-        width: 50%;
+        width: 40%;
         padding: 20px;
         display: flex;
         flex-direction: column;
         gap: 5px;
-        // height: 200px;
         border:  3px solid red;
 
         .task-item{
-            // min-width: 100%;
-            @include btnAndInput;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
             border: 2px solid lightgray;
+
+            .task-check-c{
+                border: 2px solid lightgray;
+                width: 15px;
+                height: 15px;
+            }
+            .trash-btn{
+                background: url('../images/trash-can.png');
+                background-size: contain;
+                width: 30px;
+                height: 30px; 
+                border: none;
+                margin-left: auto;
+            }
+            .task-text-c{
+                width: 50%;
+                border: none;
+                padding: 7px;
+                &:active, &:focus{
+                    outline: none;
+                }
+            }
         }
     }
 }
