@@ -9,12 +9,22 @@ const taskList = document.getElementById('task-list');
 
 // let trashBtn = null;
 
+const renderDb = async () =>{
+    let getData = await getTasks();
+    // log('getData',getData); 
+    getData.forEach(task => {
+        taskRender({'description': task.description, 'done': task.done, 'id': task._id });
+    })
+    
+
+
+}
 
 
 const taskRender = (taskId) =>{
     let listItem = document.createElement('div');
     listItem.classList.add('task-item');
-    listItem.id = taskId;
+    listItem.id = taskId.id;
 
 
     let isDoneCheck = document.createElement('input');
@@ -26,21 +36,28 @@ const taskRender = (taskId) =>{
     let trashBtn = document.createElement('button');
     trashBtn.className = 'trash-btn';
     trashBtn.addEventListener('click', (e)=>{
-        log('trashCan event', listItem);
-        log('type of trashCan event', typeof taskList.children);
         for(let item of taskList.children){
-            log(item)
-            if(item.id === taskId) taskList.removeChild(item);
+            if(item.id === taskId.id) 
+            {
+                taskList.removeChild(item);
+                delTasks(item.id);
+            }
         }
         
     })
 
-    let taskText = document.createElement('input');
+  /*   let taskText = document.createElement('input');
     taskText.type = 'text';
     taskText.name = 'task-text';
     taskText.className = 'task-text-c';
     taskText.id = 'task-text';
     taskText.value = taskInput.value;
+    taskInput.value = ''; */
+
+    let taskText = document.createElement('input');
+    taskText.type = 'text';
+    taskText.className = 'task-text-c';
+    taskText.value = taskId.description;
     taskInput.value = '';
 
 
@@ -65,14 +82,21 @@ taskInput.addEventListener('keydown', (e) => {
         let newTask = e.target.value;
         setTasks({description: newTask, done: false});
         // taskRender(resultId);
-        getTasks();
+        // getTasks();
+        // renderDb();
     };
 });
 addTaskBtn.addEventListener('click', () => {
     if(taskInput.value!=='') {
-        taskRender();
+    //    let newTask = e.target.value;
+        // setTasks({description: newTask, done: false});
+
+        // taskRender(resultId);
+        // getTasks();
+        // renderDb();
     };
 });
 
 
 
+renderDb();

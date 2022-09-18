@@ -10,7 +10,8 @@ const getTasks = async () => {
         }
     });
     const respJSON = await resp.json();
-    log('resp=> ', respJSON);
+    // log('resp=> ', respJSON);
+    return respJSON;
 };
 
 // send a POST request to the URL, do this first with Postman and then also from JavaScript. 
@@ -25,19 +26,29 @@ const setTasks = async (task)=>{
             },
           });
         const respJson = await response.json();
-          log("respJson after setTask: ", respJson);
-          log("respJson._id: ", respJson._id);
-          taskRender(respJson._id);
+        //   log("respJson after setTask: ", respJson);
+        //   log("respJson._id: ", respJson._id);
+        //   taskRender(respJson._id);
     } catch (error) {
         log(error);
     }    
 };
-// const delTasks = async (task) =>{
+const delTasks = async (taskId) =>{
+    try {
+        // log("taskID in delTask(): ", taskId);
+        // log("dbURI+taskID: ", dbURI+taskId);
 
-// }
+        fetch(dbURI+taskId, {
+             method: "DELETE",
+             headers: { "Content-Type": "application/json" }
+        });
+     } catch (error) {
+         log(error);
+     }    
+}
 
 // getTasks();
 // setTasks(task);
-getTasks();
+// getTasks();
 
 
