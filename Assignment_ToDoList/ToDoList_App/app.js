@@ -7,25 +7,18 @@ const addTaskBtn = document.getElementById('add-btn');
 const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');
 
-// let trashBtn = null;
-
 const renderDb = async () =>{
     let getData = await getTasks();
-    // log('getData',getData); 
     getData.forEach(task => {
-        taskRender({'description': task.description, 'done': task.done, 'id': task._id });
-    })
-    
-
-
-}
-
+        taskRender({'description': task.description, 
+                    'done': task.done, 'id': task._id });
+    });
+};
 
 const taskRender = (taskId) =>{
     let listItem = document.createElement('div');
     listItem.classList.add('task-item');
     listItem.id = taskId.id;
-
 
     let isDoneCheck = document.createElement('input');
     isDoneCheck.type = 'checkbox';
@@ -46,14 +39,6 @@ const taskRender = (taskId) =>{
         
     })
 
-  /*   let taskText = document.createElement('input');
-    taskText.type = 'text';
-    taskText.name = 'task-text';
-    taskText.className = 'task-text-c';
-    taskText.id = 'task-text';
-    taskText.value = taskInput.value;
-    taskInput.value = ''; */
-
     let taskText = document.createElement('input');
     taskText.type = 'text';
     taskText.className = 'task-text-c';
@@ -73,30 +58,26 @@ const taskRender = (taskId) =>{
     isDoneCheck.addEventListener('change', (e)=>{
         log('checkbox event', e.currentTarget.checked ? 'is checked': 'is not checked')
         listItem.style.background = 'blue';
-    })
+    });
 
 }
 
 taskInput.addEventListener('keydown', (e) => {
     if(e.key==='Enter' && e.target.value !== '') {
-        let newTask = e.target.value;
-        setTasks({description: newTask, done: false});
-        // taskRender(resultId);
-        // getTasks();
-        // renderDb();
+        let enteredTask = e.target.value;
+        setTasks({description: enteredTask, done: false});
+        taskList.replaceChildren();
+        renderDb();
     };
 });
-addTaskBtn.addEventListener('click', () => {
+addTaskBtn.addEventListener('click', (e) => {
     if(taskInput.value!=='') {
-    //    let newTask = e.target.value;
-        // setTasks({description: newTask, done: false});
-
-        // taskRender(resultId);
-        // getTasks();
-        // renderDb();
+        let clickedTask = taskInput.value;
+        setTasks({description: clickedTask, done: false});
+        taskList.replaceChildren();
+        renderDb();
     };
 });
-
-
 
 renderDb();
+
