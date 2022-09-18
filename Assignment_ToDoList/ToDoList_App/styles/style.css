@@ -108,7 +108,8 @@ body {
 }
 
 .main .task-list .task-item .task-text-c {
-  width: 50%;
+  background-color: #f8f5fc;
+  width: 100%;
   border: none;
   padding: 7px;
 }

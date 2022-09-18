@@ -39,3 +39,15 @@ const delTasks = async (taskId) =>{
          log(error);
      }    
 };
+const updateTasks = async (id, task) =>{
+    log(JSON.stringify(task))
+    try {
+        fetch(dbURI+id, {
+             method: "PUT",
+             body: JSON.stringify(task),
+             headers: { "Content-Type": "application/json" }
+        });
+     } catch (error) {
+         log(error);
+     }    
+};

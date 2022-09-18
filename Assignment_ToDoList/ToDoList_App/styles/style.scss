@@ -62,7 +62,8 @@
                 margin-left: auto;
             }
             .task-text-c{
-                width: 50%;
+                background-color: $myBgColor;
+                width: 100%;
                 border: none;
                 padding: 7px;
                 &:active, &:focus{

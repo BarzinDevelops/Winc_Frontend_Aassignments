@@ -43,6 +43,16 @@ const taskRender = (taskId) =>{
     taskText.type = 'text';
     taskText.className = 'task-text-c';
     taskText.value = taskId.description;
+    taskText.addEventListener('keydown', (e) => {
+        if(e.key==='Enter') {
+
+            // log('e.target',e.target.value);
+            // log('taskText.value',taskText.value);
+            updateTasks(listItem.id,{'description': e.target.value, 
+            'done': task.done});
+        }
+    });
+
     taskInput.value = '';
 
 
@@ -51,15 +61,9 @@ const taskRender = (taskId) =>{
     listItem.appendChild(trashBtn);  // img
     taskList.appendChild(listItem); //all of a listItem
 
-
-    trashBtn.addEventListener('click', ()=>{
-        listItem.style.background = 'red';
-    });
     isDoneCheck.addEventListener('change', (e)=>{
-        log('checkbox event', e.currentTarget.checked ? 'is checked': 'is not checked')
-        listItem.style.background = 'blue';
+        e.currentTarget.checked ? listItem.style.textDecoration = "line-through" : listItem.style.textDecoration = 'none';
     });
-
 }
 
 taskInput.addEventListener('keydown', (e) => {
