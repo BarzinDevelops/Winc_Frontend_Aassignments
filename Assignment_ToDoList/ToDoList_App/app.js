@@ -3,15 +3,18 @@ const log = console.log;
 
 // get elements:
 
-const addBtn = document.getElementById('add-btn');
+const addTaskBtn = document.getElementById('add-btn');
 const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');
 
-// check if enter button is pushed:
-// const onKeyDown = (e) => 
-const taskRender = () =>{
+// let trashBtn = null;
+
+
+
+const taskRender = (taskId) =>{
     let listItem = document.createElement('div');
     listItem.classList.add('task-item');
+    listItem.id = taskId;
 
 
     let isDoneCheck = document.createElement('input');
@@ -22,6 +25,15 @@ const taskRender = () =>{
     
     let trashBtn = document.createElement('button');
     trashBtn.className = 'trash-btn';
+    trashBtn.addEventListener('click', (e)=>{
+        log('trashCan event', listItem);
+        log('type of trashCan event', typeof taskList.children);
+        for(let item of taskList.children){
+            log(item)
+            if(item.id === taskId) taskList.removeChild(item);
+        }
+        
+    })
 
     let taskText = document.createElement('input');
     taskText.type = 'text';
@@ -48,14 +60,19 @@ const taskRender = () =>{
 
 }
 
-taskInput.addEventListener('keydown', (e) => {if(e.key === 'Enter' && e.target.value !== '') taskRender()});
-// addBtn.addEventListener('click', (e) => {if(e.target.value !== '') taskRender()});
-addBtn.addEventListener('click', (e) => {if(taskInput.value!=='') taskRender()});
+taskInput.addEventListener('keydown', (e) => {
+    if(e.key==='Enter' && e.target.value !== '') {
+        let newTask = e.target.value;
+        setTasks({description: newTask, done: false});
+        // taskRender(resultId);
+        getTasks();
+    };
+});
+addTaskBtn.addEventListener('click', () => {
+    if(taskInput.value!=='') {
+        taskRender();
+    };
+});
 
 
-/* document.addEventListener('keydown', (event) => {
-    var name = event.key;
-    var code = event.code;
-    // Alert the key name and key code on keydown
-    log('which', event.key, event,`Key pressed ${name} \r\n Key code value: ${code}`);
-  }, false); */
+

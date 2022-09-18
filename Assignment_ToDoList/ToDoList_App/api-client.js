@@ -17,17 +17,24 @@ const getTasks = async () => {
 let task = {description: "make assignment ToDoList!", done: false};  // example task to use for POST request
 const setTasks = async (task)=>{
     try {
-        fetch(dbURI, {
+       const response = await fetch(dbURI, {
             method: "POST",
             body: JSON.stringify(task),
             headers: {
                 "Content-Type": "application/json",
             },
           });
+        const respJson = await response.json();
+          log("respJson after setTask: ", respJson);
+          log("respJson._id: ", respJson._id);
+          taskRender(respJson._id);
     } catch (error) {
         log(error);
     }    
 };
+// const delTasks = async (task) =>{
+
+// }
 
 // getTasks();
 // setTasks(task);
