@@ -12,13 +12,16 @@ const renderDb = async () =>{
     getData.forEach(task => {
         taskRender({'description': task.description, 
                     'done': task.done, 'id': task._id });
+        // log('is task done?', task.description, task.done)
+        // log('task', task)
+        
     });
 };
 
-const taskRender = (taskId) =>{
+const taskRender = (task) =>{
     let listItem = document.createElement('div');
     listItem.classList.add('task-item');
-    listItem.id = taskId.id;
+    listItem.id = task.id;
 
     let isDoneCheck = document.createElement('input');
     isDoneCheck.type = 'checkbox';
@@ -26,11 +29,12 @@ const taskRender = (taskId) =>{
     isDoneCheck.id = 'task-is-done';
     isDoneCheck.className = 'task-check-c';
     
+    
     let trashBtn = document.createElement('button');
-    trashBtn.className = 'trash-btn';
+    trashBtn.classList.add('trash-btn');
     trashBtn.addEventListener('click', (e)=>{
         for(let item of taskList.children){
-            if(item.id === taskId.id) 
+            if(item.id === task.id) 
             {
                 taskList.removeChild(item);
                 delTasks(item.id);
@@ -41,29 +45,54 @@ const taskRender = (taskId) =>{
 
     let taskText = document.createElement('input');
     taskText.type = 'text';
-    taskText.className = 'task-text-c';
-    taskText.value = taskId.description;
+    taskText.classList.add('task-text-c', 'tasks');
+    taskText.value = task.description;
     taskText.addEventListener('keydown', (e) => {
         if(e.key==='Enter') {
-
-            // log('e.target',e.target.value);
-            // log('taskText.value',taskText.value);
             updateTasks(listItem.id,{'description': e.target.value, 
             'done': task.done});
         }
     });
 
-    taskInput.value = '';
 
+    if(task.done) {
+        taskText.style.textDecoration = 'line-through';
+        isDoneCheck.checked = true;
+    }else{
+        taskText.style.textDecoration = 'none';
+        isDoneCheck.checked = false;
+    }
+
+    taskInput.value = '';
 
     listItem.appendChild(isDoneCheck); // checkbox
     listItem.appendChild(taskText);  // text
     listItem.appendChild(trashBtn);  // img
     taskList.appendChild(listItem); //all of a listItem
 
-    isDoneCheck.addEventListener('change', (e)=>{
-        e.currentTarget.checked ? listItem.style.textDecoration = "line-through" : listItem.style.textDecoration = 'none';
-    });
+    let allListItems = document.getElementsByClassName('task-check-c');
+    for(let item of allListItems){
+        item.addEventListener('click', (e)=> {
+            if(item.parentElement.id === task.id){
+                if(e.currentTarget.checked){
+                taskText.style.textDecoration = 'line-through';
+                updateTasks(listItem.id,{'description': taskText.value, 
+                'done': true});
+                }else{
+                    taskText.style.textDecoration = 'none';
+                    // isDoneCheck.checked = false;
+                    updateTasks(listItem.id,{'description': taskText.value, 
+                    'done': false});
+                }
+            }
+            
+        })
+    }
+    // let newList = [...allListItems];
+    // log('newlist', newList)
+    // newList.forEach(item =>{
+    //     log(item)
+    // })
 }
 
 taskInput.addEventListener('keydown', (e) => {
@@ -84,4 +113,5 @@ addTaskBtn.addEventListener('click', (e) => {
 });
 
 renderDb();
+
 

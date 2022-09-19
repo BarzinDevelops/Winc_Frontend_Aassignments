@@ -40,7 +40,7 @@ const delTasks = async (taskId) =>{
      }    
 };
 const updateTasks = async (id, task) =>{
-    log(JSON.stringify(task))
+    // log(JSON.stringify(task))
     try {
         fetch(dbURI+id, {
              method: "PUT",
