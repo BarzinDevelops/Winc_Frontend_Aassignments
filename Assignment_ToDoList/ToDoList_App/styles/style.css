@@ -33,7 +33,6 @@ body {
 }
 
 .main .input_btn_wrapper {
-  border: 3px solid green;
   margin-top: auto;
 }
 
@@ -74,7 +73,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 5px;
-  border: 3px solid red;
 }
 
 .main .task-list .task-item {

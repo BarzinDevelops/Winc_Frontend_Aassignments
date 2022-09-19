@@ -1,8 +1,6 @@
-const log = console.log;
+const log = console.log; // for my own compfort -> less writing ;-)
 
-
-// get elements:
-
+// Start of my implementation for ToDo Tasks Assignment:
 const addTaskBtn = document.getElementById('add-btn');
 const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');
@@ -11,10 +9,9 @@ const renderDb = async () =>{
     let getData = await getTasks();
     getData.forEach(task => {
         taskRender({'description': task.description, 
-                    'done': task.done, 'id': task._id });
-        // log('is task done?', task.description, task.done)
-        // log('task', task)
-        
+                    'done': task.done, 
+                    'id': task._id 
+                });
     });
 };
 
@@ -25,10 +22,8 @@ const taskRender = (task) =>{
 
     let isDoneCheck = document.createElement('input');
     isDoneCheck.type = 'checkbox';
-    isDoneCheck.name = 'task-status';
     isDoneCheck.id = 'task-is-done';
     isDoneCheck.className = 'task-check-c';
-    
     
     let trashBtn = document.createElement('button');
     trashBtn.classList.add('trash-btn');
@@ -40,8 +35,7 @@ const taskRender = (task) =>{
                 delTasks(item.id);
             }
         }
-        
-    })
+    });
 
     let taskText = document.createElement('input');
     taskText.type = 'text';
@@ -54,7 +48,6 @@ const taskRender = (task) =>{
         }
     });
 
-
     if(task.done) {
         taskText.style.textDecoration = 'line-through';
         isDoneCheck.checked = true;
@@ -65,10 +58,10 @@ const taskRender = (task) =>{
 
     taskInput.value = '';
 
-    listItem.appendChild(isDoneCheck); // checkbox
-    listItem.appendChild(taskText);  // text
-    listItem.appendChild(trashBtn);  // img
-    taskList.appendChild(listItem); //all of a listItem
+    listItem.appendChild(isDoneCheck);
+    listItem.appendChild(taskText);
+    listItem.appendChild(trashBtn);
+    taskList.appendChild(listItem);
 
     let allListItems = document.getElementsByClassName('task-check-c');
     for(let item of allListItems){
@@ -80,20 +73,14 @@ const taskRender = (task) =>{
                 'done': true});
                 }else{
                     taskText.style.textDecoration = 'none';
-                    // isDoneCheck.checked = false;
                     updateTasks(listItem.id,{'description': taskText.value, 
                     'done': false});
                 }
             }
             
-        })
+        });
     }
-    // let newList = [...allListItems];
-    // log('newlist', newList)
-    // newList.forEach(item =>{
-    //     log(item)
-    // })
-}
+};
 
 taskInput.addEventListener('keydown', (e) => {
     if(e.key==='Enter' && e.target.value !== '') {
@@ -103,13 +90,14 @@ taskInput.addEventListener('keydown', (e) => {
         renderDb();
     };
 });
+
 addTaskBtn.addEventListener('click', (e) => {
     if(taskInput.value!=='') {
         let clickedTask = taskInput.value;
         setTasks({description: clickedTask, done: false});
         taskList.replaceChildren();
         renderDb();
-    };
+    }
 });
 
 renderDb();
